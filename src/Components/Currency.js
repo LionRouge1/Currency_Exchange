@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FiArrowRightCircle } from 'react-icons/fi';
 
-const Currency = ({currcy}) => {
+const Currency = ({ currcy }) => {
   const { currencyCode, countryName, currencyRate } = currcy;
   const navigate = useNavigate();
 
@@ -9,7 +10,14 @@ const Currency = ({currcy}) => {
     navigate(`convertion/${Ccode}?name=${countryName}&rate=${currencyRate}`);
   }
   return (
-    <li onClick={() => handleClick(currencyCode)}>{countryName}({currencyCode})  {currencyRate}</li>
+    <li onClick={() => handleClick(currencyCode)}>
+      <FiArrowRightCircle />
+      <div>
+        <p className="currency">{countryName}({currencyCode})</p>
+        <p className="rate">{currencyRate}</p>
+      </div>
+
+    </li>
   )
 };
 
