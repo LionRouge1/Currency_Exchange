@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { currencysymbols } from '../../redux/api/api';
 import Currency from '../Currency';
+import FilterInput from '../FilterInput';
 
 class Homepage extends Component {
   constructor(props) {
@@ -9,23 +10,42 @@ class Homepage extends Component {
     this.state = {}
   }
 
+  filter = (key) => {
+    const uKey = key.toUpperCase();
+    const li = document.querySelectorAll('li');
+    li.forEach((element) => {
+      const context = element.textContent.toUpperCase();
+      if(context.indexOf(uKey) > -1) {
+        element.style.display = '';
+      }else {
+        element.style.display = 'none';
+      }
+    })
+  }
+
   componentDidMount() {
     const { symbol } = this.props;
     symbol();
+
   }
 
   render() {
     const { currency } = this.props;
     return (
-      <ul>
-        {
-          currency.map((item) => (
-            <Currency
-              key={currency.indexOf(item)}
-              currcy={item}/>
-          ))
-        }
-      </ul>
+      <div className='homepage'>
+        <FilterInput
+          filter={this.filter}
+        />
+        <ul>
+          {
+            currency.map((item) => (
+              <Currency
+                key={currency.indexOf(item)}
+                currcy={item} />
+            ))
+          }
+        </ul>
+      </div>
     )
   }
 }

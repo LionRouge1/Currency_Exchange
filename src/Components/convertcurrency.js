@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getconvert } from '../redux/api/api';
 import { userAction } from '../redux/convertion/conversion';
 import GraphDesign from './graphDesign';
+import Convertion from './Convertion';
 
 const ConvertCurrency = () => {
   const { results } = useSelector(state => state.convertion);
-  const { from, to, amount, result } = results;
+  const { from, to, amount } = results;
 
   const ableSymbols = useSelector((state) => state.ranges.available);
 
@@ -61,23 +62,13 @@ const ConvertCurrency = () => {
         <GraphDesign
           symbol={currency}
         />
-        <form onSubmit={handleSubmit}>
-          <input type="number" name="amount" placeholder='Enter the amount' onChange={handleChanges} value={amount} />
-          <select name="to" onChange={handleChanges} value={to}>
-            <option value="">No selected</option>
-            {ableSymbols.map((element) => (
-              <option key={element} value={element} >{element}</option>
-            ))}
-          </select>
-          <button type="submit">Convert</button>
-        </form>
-        <div>
-          <p>{from}</p>
-          <p>{to}</p>
-          <p>{amount}</p>
-          <p>{result}</p>
-        </div>
-        <button onClick={goback}>Go back</button>
+        <Convertion
+          handleChanges={handleChanges}
+          handleSubmit={handleSubmit}
+          ableSymbols={ableSymbols}
+          results={results}
+          goback={goback}
+        />
       </>
     )
   };
@@ -90,7 +81,5 @@ const ConvertCurrency = () => {
     </div>
   )
 };
-
-
 
 export default ConvertCurrency;

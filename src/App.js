@@ -5,6 +5,7 @@ import ConvertCurrency from './Components/convertcurrency';
 import Homepage from './Components/pages/Homepage';
 import { useDispatch } from 'react-redux';
 import { supported } from './redux/api/api';
+import Navbar from './Components/Navbar';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,12 +13,16 @@ function App() {
   useEffect(() => {
     dispatch(supported())
   }, [dispatch]);
-  
+
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="convertion/:currency" element={<ConvertCurrency />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="convertion/:currency" element={<ConvertCurrency />} />
+      </Routes>
+    </>
+
   );
 }
 
