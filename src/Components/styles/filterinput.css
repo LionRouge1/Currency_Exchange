@@ -1,5 +1,5 @@
 .input_box {
-  background-image: url('../../dollar.jpeg');
+  background-image: url('../../images/dollar.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -27,6 +27,13 @@
   position: relative;
 }
 
+.phoneH1 {
+  color: white;
+  font-size: 20px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
 .base {
   position: relative;
   right: 3%;
@@ -34,19 +41,45 @@
   color: white;
   text-align: right;
   text-transform: uppercase;
-  line-height: 30px;
+  line-height: 1.2;
+  font-size: 25px;
+  font-family: 'Lato', sans-serif;
+}
+
+.phoneBase {
+  position: absolute;
+  right: 3%;
+  color: white;
+  text-align: right;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
 }
 
 .input {
-  position: relative;
+  position: absolute;
   left: 3%;
+  bottom: 20%;
   width: 400px;
   height: 20px;
   display: grid;
   grid-template-columns: 80% 20%;
 }
 
-.input > input {
+.phoneInput {
+  position: absolute;
+  left: 3%;
+  bottom: 20%;
+  margin-top: 10px;
+  width: 300px;
+  height: 20px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.input > input,
+.phoneInput > input {
   height: 100%;
   margin: 0;
   padding: 10px;
@@ -55,7 +88,8 @@
   outline: none;
 }
 
-.input > span {
+.input > span,
+.phoneInput > span {
   box-sizing: border-box;
   display: grid;
   background-color: var(--bg-color);

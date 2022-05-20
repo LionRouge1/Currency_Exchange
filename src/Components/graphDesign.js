@@ -19,16 +19,9 @@ const GraphDesign = ({ symbol }) => {
     labels: X,
     datasets: [
       {
-        label: 'Popularity of colours',
+        label: 'Currency rates between one month',
+        Color: 'white',
         data: Y,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
@@ -37,25 +30,31 @@ const GraphDesign = ({ symbol }) => {
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)'
         ],
+        color: 'white',
         borderWidth: 3,
       }
-    ]
+    ],
   };
 
 
   return (
-    <div>
+    <div className='graph'>
       <Line
+        style={{ color: 'white' }}
         data={chartData}
         options={{
           plugins: {
             title: {
               display: true,
-              text: "Cryptocurrency prices"
+              text: `${symbol} variation compared to EURO`,
+              color: 'white',
             },
             legend: {
               display: true,
-            }
+              labels: {
+                font: 20
+              }
+            },
           }
         }}
       />

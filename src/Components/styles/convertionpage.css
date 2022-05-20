@@ -1,0 +1,147 @@
+.convert_box {
+  background-color: var(--bg-dack);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.heading {
+  background-image: url('../../images/exchange.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 30vh;
+  position: relative;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg, #436ab20e, #436ab24b,#436ab269, #436ab2bb, #436ab2e3);
+}
+
+.heading > h2 {
+  position: absolute;
+  color: white;
+  width: 300px;
+  height: 100px;
+  padding: 30px 0;
+  right: 3%;
+  float: right;
+  clear: both;
+}
+
+.graph {
+  color: white;
+}
+
+.no_mach {
+  width: 60%;
+  margin: 50px auto;
+  text-align: center;
+  color: white;
+}
+
+.no_mach p {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 100%;
+}
+
+.phoneBox {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 100%;
+}
+
+.form_box {
+  padding: 10px;
+  padding-top: 70px;
+}
+
+.form_box > form {
+  width: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.288);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form_box input {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form_box select {
+  width: 150px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px 10px;
+  color: white;
+  background-color: var(--bg-dack);
+  border: none;
+  height: 30px;
+}
+
+.form_box > form button {
+  width: 120px;
+  height: 30px;
+  border: none;
+  background-color: var(--bg-dack);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.form_info {
+  margin-bottom: 20px;
+}
+
+.form_result {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form_result span {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.form_result .result > span {
+  color: tomato;
+}
+
+.no_mach button,
+.form_box > button {
+  color: white;
+  width: 150px;
+  height: 40px;
+  background-color: var(--bg-light);
+  margin-top: 40px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 8px;
+}

@@ -12,8 +12,24 @@ nav > img {
   height: 80px;
 }
 
+nav > svg {
+  padding: 15px;
+  font-size: 23px;
+  color: white;
+}
+
+.phoneImg {
+  display: none;
+}
+
 .date_box {
   font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
+
+.phoneDate_box {
+  font-size: 18px;
   color: white;
   font-weight: bold;
 }
