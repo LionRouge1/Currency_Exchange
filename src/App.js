@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { screenContext } from './Components/screenContex';
+import { useDispatch } from 'react-redux';
+import screenContext from './Components/screenContex';
 import ConvertCurrency from './Components/convertcurrency';
 import Homepage from './Components/pages/Homepage';
-import { useDispatch } from 'react-redux';
 import { supported } from './redux/api/api';
 import Navbar from './Components/Navbar';
 
@@ -21,12 +21,12 @@ function App() {
     return () => (
       window.removeEventListener('resize', () => {
         setScreenWidth(window.innerWidth < 650);
-      }))
+      }));
   }, [dispatch]);
 
   return (
     <>
-      <screenContext.Provider value={screenWidth} >
+      <screenContext.Provider value={screenWidth}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />

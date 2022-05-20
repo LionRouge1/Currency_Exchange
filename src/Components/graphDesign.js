@@ -1,12 +1,11 @@
 // eslint-disable-next-line
 import Chart from 'chart.js/auto';
-import { Line } from "react-chartjs-2";
-import { useEffect } from "react";
+import { Line } from 'react-chartjs-2';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { graphInfo } from '../redux/api/api';
 
 const GraphDesign = ({ symbol }) => {
-
   const dispatch = useDispatch();
   const graphResult = useSelector((state) => state.ranges);
   const { X, Y } = graphResult.ranges;
@@ -28,17 +27,16 @@ const GraphDesign = ({ symbol }) => {
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 159, 64, 1)',
         ],
         color: 'white',
         borderWidth: 3,
-      }
+      },
     ],
   };
 
-
   return (
-    <div className='graph'>
+    <div className="graph">
       <Line
         style={{ color: 'white' }}
         data={chartData}
@@ -52,13 +50,13 @@ const GraphDesign = ({ symbol }) => {
             legend: {
               display: true,
               labels: {
-                font: 20
-              }
+                font: 20,
+              },
             },
-          }
+          },
         }}
       />
     </div>
-  )
-}
-export default GraphDesign; 
+  );
+};
+export default GraphDesign;

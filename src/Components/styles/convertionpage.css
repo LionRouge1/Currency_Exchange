@@ -22,7 +22,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background-image: linear-gradient(90deg, #436ab20e, #436ab24b,#436ab269, #436ab2bb, #436ab2e3);
+  background-image: linear-gradient(90deg, #436ab20e, #436ab24b, #436ab269, #436ab2bb, #436ab2e3);
 }
 
 .heading > h2 {
@@ -100,6 +100,19 @@
   height: 30px;
 }
 
+.no_mach button,
+.form_box > button {
+  color: white;
+  width: 150px;
+  height: 40px;
+  background-color: var(--bg-light);
+  margin-top: 40px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 8px;
+}
+
 .form_box > form button {
   width: 120px;
   height: 30px;
@@ -126,22 +139,9 @@
 
 .form_result span {
   display: inline-block;
-  margin: 0px 5px;
+  margin: 0 5px;
 }
 
 .form_result .result > span {
   color: tomato;
-}
-
-.no_mach button,
-.form_box > button {
-  color: white;
-  width: 150px;
-  height: 40px;
-  background-color: var(--bg-light);
-  margin-top: 40px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 8px;
 }

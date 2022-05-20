@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { BsArrowLeftCircle } from 'react-icons/bs';
-import { screenContext } from "./screenContex";
+import screenContext from './screenContex';
 
 const Convertion = ({
   handleChanges,
@@ -9,18 +9,19 @@ const Convertion = ({
   results,
   goback,
 }) => {
-
-  const { from, to, amount, result } = results;
+  const {
+    from, to, amount, result,
+  } = results;
   const screenWidth = useContext(screenContext);
 
   return (
-    <div className="form_box" style={{paddingTop: screenWidth ? '30px' : ''}}>
+    <div className="form_box" style={{ paddingTop: screenWidth ? '30px' : '' }}>
       <form onSubmit={handleSubmit}>
         <div className="form_info">
           <input
             type="number"
             name="amount"
-            placeholder='Enter the amount'
+            placeholder="Enter the amount"
             onChange={handleChanges}
             value={amount}
           />
@@ -32,7 +33,7 @@ const Convertion = ({
           >
             <option value="">No selected</option>
             {ableSymbols.map((element) => (
-              <option key={element} value={element} >{element}</option>
+              <option key={element} value={element}>{element}</option>
             ))}
           </select>
           <button
@@ -40,7 +41,7 @@ const Convertion = ({
             style={
               {
                 width: screenWidth ? '100px' : '',
-                fontSize: screenWidth ? '16px' : ''
+                fontSize: screenWidth ? '16px' : '',
               }
             }
           >
@@ -49,14 +50,24 @@ const Convertion = ({
         </div>
         <div className="form_result">
           <span>{amount}</span>
-          <span>{from}</span> to
+          <span>{from}</span>
+          {' '}
+          to
           <span>{to}</span>
-          <span className="result">Result: <span>{result}</span></span>
+          <span className="result">
+            Result:
+            <span>{result}</span>
+          </span>
         </div>
       </form>
-      <button onClick={goback}> <BsArrowLeftCircle /> Go back</button>
+      <button type="button" onClick={goback}>
+        {' '}
+        <BsArrowLeftCircle />
+        {' '}
+        Go back
+      </button>
     </div>
-  )
+  );
 };
 
 export default Convertion;

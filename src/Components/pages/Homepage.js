@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { currencysymbols } from '../../redux/api/api';
-import { screenContext } from '../screenContex';
+import screenContext from '../screenContex';
 import Currency from '../Currency';
 import FilterInput from '../FilterInput';
 import '../styles/homepage.css';
@@ -9,10 +9,14 @@ import '../styles/homepage.css';
 class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
-  static contextType = screenContext;
-  
+
+  componentDidMount() {
+    const { symbol } = this.props;
+    symbol();
+  }
+
   filter = (key) => {
     const uKey = key.toUpperCase();
     const li = document.querySelectorAll('li');
@@ -23,19 +27,13 @@ class Homepage extends Component {
       } else {
         element.style.display = 'none';
       }
-    })
-  }
-
-  componentDidMount() {
-    const { symbol } = this.props;
-    symbol();
-
+    });
   }
 
   render() {
     const { currency } = this.props;
     const screenWidth = this.context;
-    let phoneUl = screenWidth ? 'phoneUl' : 'homepage';
+    const phoneUl = screenWidth ? 'phoneUl' : 'homepage';
     return (
       <div className="home_box">
         <FilterInput
@@ -54,9 +52,11 @@ class Homepage extends Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
-};
+}
+
+Homepage.contextType = screenContext;
 
 const mapStateToProps = (state) => ({
   currency: state.Currency.currencies,
@@ -64,8 +64,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   symbol: () => {
-    dispatch(currencysymbols())
-  }
+    dispatch(currencysymbols());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

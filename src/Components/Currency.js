@@ -8,17 +8,25 @@ const Currency = ({ currcy }) => {
 
   const handleClick = (Ccode) => {
     navigate(`convertion/${Ccode}?name=${countryName}&rate=${currencyRate}`);
-  }
+  };
   return (
-    <li onClick={() => handleClick(currencyCode)}>
+    <li
+      onClick={() => handleClick(currencyCode)}
+      aria-hidden="true"
+    >
       <FiArrowRightCircle />
       <div>
-        <p className="currency">{countryName}({currencyCode})</p>
+        <p className="currency">
+          {countryName}
+          (
+          {currencyCode}
+          )
+        </p>
         <p className="rate">{currencyRate}</p>
       </div>
 
     </li>
-  )
+  );
 };
 
 export default Currency;

@@ -9,7 +9,7 @@ const initialState = {
     rate: '',
     result: '',
   },
-}
+};
 
 export const convertionAction = (convert) => ({
   type: CONVERSION,
@@ -22,21 +22,21 @@ export const userAction = (payload) => ({
 });
 
 const convertReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case CONVERSION:
-      const [result] = action.convert
+  switch (action.type) {
+    case CONVERSION: {
+      const [result] = action.convert;
       return {
         ...state,
         results: result,
-      };
-    
+      }; }
+
     case USER_CONVERT:
       return {
         ...state,
         results: Object.assign(state.results, action.payload),
-      }
-    
-    default: 
+      };
+
+    default:
       return state;
   }
 };

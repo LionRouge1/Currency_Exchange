@@ -16,7 +16,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background-image: linear-gradient(90deg, #436ab20e, #436ab24b,#436ab269, #436ab2bb, #436ab2e3);
+  background-image: linear-gradient(90deg, #436ab20e, #436ab24b, #436ab269, #436ab2bb, #436ab2e3);
 }
 
 .input_box > h1 {
