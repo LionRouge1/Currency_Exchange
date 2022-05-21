@@ -10,7 +10,7 @@ const FilterInput = ({ filter }) => {
       e.target.value,
     );
 
-    filter(search);
+    filter(search.trim());
   };
   const screenWidth = useContext(screenContext);
   const phoneH1 = screenWidth ? 'phoneH1' : '';

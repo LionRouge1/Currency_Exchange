@@ -5,6 +5,7 @@ import screenContext from '../screenContex';
 import Currency from '../Currency';
 import FilterInput from '../FilterInput';
 import '../styles/homepage.css';
+import { filterAction } from '../../redux/exchange/exchange';
 
 class Homepage extends Component {
   constructor(props) {
@@ -18,16 +19,8 @@ class Homepage extends Component {
   }
 
   filter = (key) => {
-    const uKey = key.toUpperCase();
-    const li = document.querySelectorAll('li');
-    li.forEach((element) => {
-      const context = element.textContent.toUpperCase();
-      if (context.indexOf(uKey) > -1) {
-        element.style.display = '';
-      } else {
-        element.style.display = 'none';
-      }
-    });
+    const { filtring } = this.props;
+    filtring(key);
   }
 
   render() {
@@ -65,6 +58,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   symbol: () => {
     dispatch(currencysymbols());
+  },
+  filtring: (key) => {
+    dispatch(filterAction(key));
   },
 });
 

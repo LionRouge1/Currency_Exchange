@@ -49,18 +49,3 @@
   font-family: 'Lato', sans-serif;
   font-weight: bold;
 }
-
-.homepage li:nth-last-child(3n+0),
-.phoneUl li:nth-last-child(3n+0) {
-  background-color: var(--bg-light);
-}
-
-.homepage li:nth-last-child(3n+2),
-.phoneUl li:nth-last-child(3n+2) {
-  background-color: var(--bg-color);
-}
-
-.homepage li:nth-last-child(3n+1),
-.phoneUl li:nth-last-child(3n+1) {
-  background-color: var(--bg-dack);
-}
