@@ -1,5 +1,7 @@
 # Getting Started with Create React App and Redux
 
+zoom https://www.loom.com/share/1d43345a133449549dac92d6cd14e501
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts

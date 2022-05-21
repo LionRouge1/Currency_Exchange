@@ -17,6 +17,7 @@ const Currency = ({ currcy }) => {
   };
   return (
     <li
+      data-testid={`item${currencyCode}`}
       onClick={() => handleClick(currencyCode)}
       style={{ display: show === false ? 'none' : 'grid' }}
       aria-hidden="true"
