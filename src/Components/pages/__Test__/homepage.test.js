@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import Homepage from '../Homepage';
 import store from '../../../redux/ConfigStore';
 import Currency from '../../Currency';
-import { BrowserRouter } from 'react-router-dom';
 
 const MockHomepage = () => (
   <Provider store={store}>
@@ -17,8 +17,8 @@ const MockHomepage = () => (
 const mockcurrcy = {
   currencyCode: 'GHS',
   countryName: 'Ghana',
-  currencyRate: '678'
-}
+  currencyRate: '678',
+};
 
 describe('Testing Homepage', () => {
   it('Verified if there is element list in document', () => {
@@ -33,7 +33,7 @@ describe('Testing Homepage', () => {
         <Currency
           currcy={mockcurrcy}
         />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     const curElement = await screen.findByTestId('itemGHS');
     expect(curElement).toBeInTheDocument();

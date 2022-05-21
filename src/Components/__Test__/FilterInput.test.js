@@ -20,16 +20,16 @@ describe('Testing FilterInput', () => {
   it('Check if logo if visible', () => {
     render(<FilterInput />);
     const imgElement = screen.getByPlaceholderText(/search.../i);
-    fireEvent.click(imgElement)
+    fireEvent.click(imgElement);
     expect(imgElement.textContent).toBe('');
   });
 
-  it('fire on change event', async() => {
-    render(<FilterInput 
+  it('fire on change event', async () => {
+    render(<FilterInput
       filter={mockFilter}
     />);
     const imgElement = screen.getByPlaceholderText(/search.../i);
-    fireEvent.change(imgElement, {target: {value: "toto"}})
+    fireEvent.change(imgElement, { target: { value: 'toto' } });
     expect(imgElement.value).toBe('toto');
   });
 });
