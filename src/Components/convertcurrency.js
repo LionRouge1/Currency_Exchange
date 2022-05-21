@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { BsArrowLeftCircle } from 'react-icons/bs';
 import { getconvert } from '../redux/api/api';
 import { userAction } from '../redux/convertion/conversion';
 import GraphDesign from './graphDesign';
 import Convertion from './Convertion';
+import screenContext from './screenContex';
+import './styles/convertionpage.css';
 
 const ConvertCurrency = () => {
-  const { results } = useSelector(state => state.convertion);
+  const { results } = useSelector((state) => state.convertion);
   const { from, to, amount } = results;
+  const screenWidth = useContext(screenContext);
 
   const ableSymbols = useSelector((state) => state.ranges.available);
 
@@ -25,11 +29,8 @@ const ConvertCurrency = () => {
     e.preventDefault();
     if (to !== '' && amount !== 0 && amount !== '') {
       dispatch(getconvert(from, to, amount));
-    } else {
-      console.log('Please fill all the inputs !!!');
     }
-
-  }
+  };
 
   const handleChanges = (e) => {
     const exchge = {
@@ -40,7 +41,6 @@ const ConvertCurrency = () => {
     };
 
     dispatch(userAction(exchge));
-
   };
 
   const goback = () => {
@@ -53,33 +53,71 @@ const ConvertCurrency = () => {
     };
     dispatch(userAction(exchge));
     navigate(-1);
-  }
+  };
+
+  const box = screenWidth ? 'phoneBox' : 'box';
 
   if (ableSymbols.includes(currency)) {
     return (
-      <>
-        <div><h2>{countryName} ({currency}) <span>{currencyRate}</span></h2></div>
-        <GraphDesign
-          symbol={currency}
-        />
-        <Convertion
-          handleChanges={handleChanges}
-          handleSubmit={handleSubmit}
-          ableSymbols={ableSymbols}
-          results={results}
-          goback={goback}
-        />
-      </>
-    )
-  };
+      <div className="convert_box">
+        <div style={{ height: screenWidth ? '20vh' : '' }} className="heading">
+          <h2>
+            {countryName}
+            (
+            {currency}
+            )
+            <span>{currencyRate}</span>
+          </h2>
+        </div>
+        <div className={box}>
+          <GraphDesign
+            symbol={currency}
+          />
+          <Convertion
+            handleChanges={handleChanges}
+            handleSubmit={handleSubmit}
+            ableSymbols={ableSymbols}
+            results={results}
+            goback={goback}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <div><h2>{countryName} ({currency}) <span>{currencyRate}</span></h2></div>
-      <p>This page is in contrustion... <br /> No graph available yet <br /> No convertion available yet</p>
-      <button onClick={goback}>Go back</button>
+    <div className="convert_box">
+      <div className="heading">
+        <h2>
+          {countryName}
+          {' '}
+          (
+          {currency}
+          )
+          {' '}
+          <span>{currencyRate}</span>
+        </h2>
+      </div>
+      <div className="no_mach">
+        <p>
+          This page is in contrustion...
+          {' '}
+          <br />
+          No graph available yet
+          {' '}
+          <br />
+          No convertion available yet
+        </p>
+        <button type="button" onClick={goback}>
+          {' '}
+          <BsArrowLeftCircle />
+          {' '}
+          Go back
+        </button>
+      </div>
+
     </div>
-  )
+  );
 };
 
 export default ConvertCurrency;
