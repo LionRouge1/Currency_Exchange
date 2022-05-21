@@ -37,7 +37,7 @@ class Homepage extends Component {
             {
               currency.map((item) => (
                 <Currency
-                  key={currency.indexOf(item)}
+                  key={item.currencyCode}
                   currcy={item}
                 />
               ))
