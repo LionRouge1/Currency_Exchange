@@ -1,0 +1,51 @@
+.home_box {
+  background-image: url('../../images/allcurrency.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.homepage > ul {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 0;
+  width: 100%;
+}
+
+.phoneUl > ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0;
+  width: 100%;
+}
+
+.homepage > ul li,
+.phoneUl > ul li {
+  display: grid;
+  list-style: none;
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.homepage > ul li svg,
+.phoneUl > ul li svg {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+}
+
+.homepage > ul li p,
+.phoneUl > ul li p {
+  margin: 20px 0;
+}
+
+.rate {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
