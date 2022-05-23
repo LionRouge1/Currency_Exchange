@@ -9,7 +9,6 @@
 
 ## Links 
 
-- [zoom video](https://www.loom.com/share/1d43345a133449549dac92d6cd14e501)
 - Project link [here](https://currencyrates1.netlify.app/)
 
 ## Built With
